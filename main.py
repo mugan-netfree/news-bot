@@ -11,15 +11,29 @@ NEWS_FEEDS = {
     'N12': 'https://rcs.mako.co.il/rss/32b338439535c310VgnVCM2000002a0c10acRCRD.xml',
     'Walla': 'https://rss.walla.co.il/feed/22',
     'ישראל היום': 'https://www.israelhayom.co.il/rss.xml',
-    'גלובס': 'https://www.globes.co.il/webservice/rss/rssfeeder.asmx/FeederNode?iID=2'
 }
 
-TWITTER_FEEDS = {
-    'מבזקי ynet (טוויטר)': 'https://nitter.privacydev.net/ynetalerts/rss',
-    'כאן חדשות (טוויטר)': 'https://nitter.privacydev.net/kann_news/rss',
+# חשבונות טוויטר, ערוצי טלגרם ומקורות נוספים
+# הערה: השתמשתי כאן ב-Nitter (לטוויטר) ו-RSS-Bridge (לטלגרם). כלים אלו לפעמים לא יציבים.
+# אם מקור מסוים מפסיק לעבוד, ייתכן שנצטרך להחליף את הכתובת בעתיד.
+SOCIAL_FEEDS = {
+    # --- הערוצים שביקשת ---
+    'צ׳אט הכתבים N12 (טלגרם)': 'https://rss-bridge.org/bridge01/?action=display&bridge=Telegram&username=N12chat&format=Atom',
+    'ערוץ 14 (טוויטר)': 'https://nitter.privacydev.net/now14israel/rss',
+    
+    # --- המלצות ביטחוניות (טוויטר) ---
+    'דובר צה״ל (טוויטר)': 'https://nitter.privacydev.net/idfonline/rss',
+    'יוסי יהושוע (פרשן צבאי)': 'https://nitter.privacydev.net/yossi_yehoshua/rss',
+    'אמיר בוחבוט (פרשן צבאי)': 'https://nitter.privacydev.net/amirbohbot/rss',
+    'טל לב רם (פרשן צבאי)': 'https://nitter.privacydev.net/tallevram/rss',
+
+    # --- המלצות ביטחוניות (טלגרם) ---
+    'אבו עלי אקספרס (טלגרם)': 'https://rss-bridge.org/bridge01/?action=display&bridge=Telegram&username=abualiexpress&format=Atom',
+    'אינטלי טיימס (טלגרם)': 'https://rss-bridge.org/bridge01/?action=display&bridge=Telegram&username=intellitimes&format=Atom',
+    
+    # --- חשבונות טוויטר כלליים שהיו קודם ---
     'עמית סגל (טוויטר)': 'https://nitter.privacydev.net/amit_segal/rss'
 }
-
 # --- הגדרות מתקדמות ---
 # כמה פריטים לשלוח בפעם הראשונה שהסקריפט רץ?
 INITIAL_RUN_LIMIT = 20 
