@@ -93,7 +93,7 @@ if __name__ == "__main__":
     is_first_run = not os.path.exists(SEEN_LINKS_FILE)
     seen_links = load_seen_links()
     
-    all_feeds = {**NEWS_FEEDS, **TWITTER_FEEDS}
+    all_feeds = {**NEWS_FEEDS, **SOCIAL_FEEDS}
     all_items = get_latest_items(all_feeds)
     
     # Sort all items by publication time, newest first
