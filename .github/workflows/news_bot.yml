@@ -1,0 +1,39 @@
+name: News Aggregator Bot
+
+on:
+  schedule:
+    # Runs every 5 minutes. This is the minimum for GitHub Actions cron jobs.
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # Allows you to run it manually from the Actions tab in GitHub
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run the Python script
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # Changed from Telegram
+      run: python main.py
+
+    - name: Commit seen links file
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add seen_links.txt
+        # Only commit if there are changes
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update seen links"
+        git push
